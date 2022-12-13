@@ -26,7 +26,7 @@
 
                 queue.Enqueue(text[i]);
 
-                // If we saw at least 4 characters and they are all different
+                // If we saw enough characters and they are all different
                 if (queue.Count == capacity && queue.Distinct().Count() == capacity)
                 {
                     index = i + 1;
