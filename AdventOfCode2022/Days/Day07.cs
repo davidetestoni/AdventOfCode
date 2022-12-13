@@ -18,7 +18,7 @@ namespace AdventOfCode2022.Days
             {
                 if (line.StartsWith("$ cd "))
                 {
-                    var destFolder = Regex.Match(line, @"\$ cd (.*)$")
+                    var destFolder = Regex.Match(line, @"^\$ cd (.*)$")
                         .Groups[1].Value;
                     
                     if (destFolder == "/")
@@ -43,14 +43,14 @@ namespace AdventOfCode2022.Days
                 }
                 else if (line.StartsWith("dir "))
                 {
-                    var subFolder = Regex.Match(line, @"dir (.*)$")
+                    var subFolder = Regex.Match(line, @"^dir (.*)$")
                         .Groups[1].Value;
 
                     current.GetSubFolder(subFolder);
                 }
                 else
                 {
-                    var match = Regex.Match(line, @"(\d+) (.*)$");
+                    var match = Regex.Match(line, @"^(\d+) (.*)$");
                     var fileSize = long.Parse(match.Groups[1].Value);
                     var fileName = match.Groups[2].Value;
                     current.FileSizes[fileName] = fileSize;
