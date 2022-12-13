@@ -60,7 +60,7 @@ namespace AdventOfCode2022.Days
             // Init the list with the capacity we need in order to
             // avoid expensive array expansion operations
             var folderSizes = new List<long>(root.SubFolderCount);
-            AddSizes(root, folderSizes);
+            GatherFolderSizes(root, folderSizes);
 
             var sumOfSizes = folderSizes.Where(x => x <= MAX_DIR_SIZE).Sum();
 
@@ -76,13 +76,14 @@ namespace AdventOfCode2022.Days
             Console.WriteLine(minSufficientSize);
         }
 
-        private static void AddSizes(Folder current, List<long> folderSizes)
+        private static void GatherFolderSizes(Folder current,
+            List<long> folderSizes)
         {
             folderSizes.Add(current.Size);
 
             foreach (var subFolder in current.SubFolders.Values)
             {
-                AddSizes(subFolder, folderSizes);
+                GatherFolderSizes(subFolder, folderSizes);
             }
         }
 
