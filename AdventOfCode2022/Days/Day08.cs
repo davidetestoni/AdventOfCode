@@ -34,10 +34,23 @@
 
             Console.WriteLine(visible);
 
+            // Unoptimized but cool version that uses Linq
+            /*
             var topScenicScore = Enumerable.Range(0, rows)
-                .SelectMany(i => Enumerable.Range(0, columns).Select(j => (i, j)))
-                .Select(ij => GetScenicScore(grid, ij.i, ij.j))
-                .Max();
+                .SelectMany(i => Enumerable.Range(0, columns), (i, j) => (i, j))
+                .Max(ij => GetScenicScore(grid, ij.i, ij.j));
+            */
+
+            var topScenicScore = 0L;
+
+            for (int i = 0; i < rows; i++)
+            {
+                for (int j = 0; j < columns; j++)
+                {
+                    topScenicScore = Math.Max(
+                        topScenicScore, GetScenicScore(grid, i, j));
+                }
+            }
 
             Console.WriteLine(topScenicScore);
         }
