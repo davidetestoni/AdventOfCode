@@ -4,8 +4,6 @@
     {
         public void Run()
         {
-            var lines = File.ReadAllLines("Days/Day11.txt");
-
             var monkeys = CreateMonkeys();
 
             foreach (var _ in Enumerable.Range(1, 20))

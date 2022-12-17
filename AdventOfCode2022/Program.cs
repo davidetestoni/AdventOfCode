@@ -1,67 +1,7 @@
 ﻿using AdventOfCode2022.Days;
 
-Console.WriteLine(@"Day 1
+Console.WriteLine(@"Day 12
 ------");
-new Day01().Run();
-
-Console.WriteLine(@"
-
-Day 2
-------");
-new Day02().Run();
-
-Console.WriteLine(@"
-
-Day 3
-------");
-new Day03().Run();
-
-Console.WriteLine(@"
-
-Day 4
-------");
-new Day04().Run();
-
-Console.WriteLine(@"
-
-Day 5
-------");
-new Day05().Run();
-
-Console.WriteLine(@"
-
-Day 6
-------");
-new Day06().Run();
-
-Console.WriteLine(@"
-
-Day 7
-------");
-new Day07().Run();
-
-Console.WriteLine(@"
-
-Day 8
-------");
-new Day08().Run();
-
-Console.WriteLine(@"
-
-Day 9
-------");
-new Day09().Run();
-
-Console.WriteLine(@"
-
-Day 10
-------");
-new Day10().Run();
-
-Console.WriteLine(@"
-
-Day 11
-------");
-new Day11().Run();
+new Day12().Run();
 
 Console.ReadLine();
