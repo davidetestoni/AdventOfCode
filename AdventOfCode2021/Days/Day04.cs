@@ -50,7 +50,33 @@
                         var score = board.UnmarkedSum * extractedNumber;
                         Console.WriteLine($"Score: {score}");
 
-                        return;
+                        goto part2;
+                    }
+                }
+            }
+
+            // PART 2
+            part2:
+            boards.ForEach(b => b.Reset());
+
+            var winningBoards = new HashSet<Guid>();
+
+            foreach (var extractedNumber in extractedNumbers)
+            {
+                foreach (var board in boards)
+                {
+                    board.MarkNumbers(extractedNumber);
+
+                    if (!winningBoards.Contains(board.Id) && board.CheckWin())
+                    {
+                        winningBoards.Add(board.Id);
+
+                        // If it's the last board to win
+                        if (winningBoards.Count == boards.Count)
+                        {
+                            var score = board.UnmarkedSum * extractedNumber;
+                            Console.WriteLine($"Score: {score}");
+                        }
                     }
                 }
             }
@@ -58,6 +84,8 @@
 
         class Board
         {
+            public Guid Id { get; set; } = Guid.NewGuid();
+
             public List<Number[]> Rows { get; set; } = new();
 
             public int UnmarkedSum => Rows.SelectMany(r => r)
@@ -73,6 +101,17 @@
                         {
                             num.Marked = true;
                         }
+                    }
+                }
+            }
+
+            public void Reset()
+            {
+                foreach (var row in Rows)
+                {
+                    foreach (var num in row)
+                    {
+                        num.Marked = false;
                     }
                 }
             }
