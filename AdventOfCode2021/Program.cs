@@ -22,4 +22,10 @@ Day 4
 ------");
 new Day04().Run();
 
+Console.WriteLine(@"
+
+Day 5
+------");
+new Day05().Run();
+
 Console.ReadLine();
