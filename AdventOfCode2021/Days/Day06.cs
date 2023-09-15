@@ -1,4 +1,6 @@
-﻿namespace AdventOfCode2021.Days
+﻿using System.Numerics;
+
+namespace AdventOfCode2021.Days
 {
     internal class Day06 : IDay
     {
@@ -12,19 +14,47 @@
                 .Select(x => int.Parse(x))
                 .ToList();
 
-            Age(shoal, 80);
+            var count = Age(shoal, 80);
 
-            Console.WriteLine($"Individuals: {shoal.Count}");
+            Console.WriteLine($"Individuals: {count}");
 
-            // TODO: Takes too long, it's exponential, use different approach
-            // (aggregate fish with same age into counters)
+            count = Age(shoal, 256);
 
-            Age(shoal, 256 - 80);
-
-            Console.WriteLine($"Individuals: {shoal.Count}");
+            Console.WriteLine($"Individuals: {count}");
         }
 
-        private void Age(List<int> shoal, int days)
+        private BigInteger Age(List<int> shoal, int days)
+        {
+            // Array with indices from 0 to 9
+            var shoalCounts = Enumerable.Repeat(BigInteger.Zero, 9).ToArray();
+
+            // Populate the ages array
+            foreach (var s in shoal)
+            {
+                shoalCounts[s]++;
+            }
+
+            for (int i = 0; i < days; i++)
+            {
+                var zeroCount = shoalCounts[0];
+
+                // Shift all other values
+                for (int j = 1; j < shoalCounts.Length; j++)
+                {
+                    shoalCounts[j - 1] = shoalCounts[j];
+                }
+
+                // Newborns
+                shoalCounts[8] = zeroCount;
+
+                // Parents
+                shoalCounts[6] += zeroCount;
+            }
+
+            return shoalCounts.Aggregate((a, b) => a + b);
+        }
+
+        private long AgeSlow(List<int> shoal, int days)
         {
             for (int i = 0; i < days; i++)
             {
@@ -44,6 +74,8 @@
                     shoal[j]--;
                 }
             }
+
+            return shoal.Count;
         }
     }
 }
