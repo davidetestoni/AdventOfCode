@@ -34,4 +34,10 @@ Day 6
 ------");
 new Day06().Run();
 
+Console.WriteLine(@"
+
+Day 7
+------");
+new Day07().Run();
+
 Console.ReadLine();
