@@ -73,4 +73,10 @@ Day 12
 ------");
 new Day12().Run();
 
+Console.WriteLine(@"
+
+Day 13
+------");
+new Day13().Run();
+
 Console.ReadLine();
