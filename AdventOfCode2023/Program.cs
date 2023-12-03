@@ -1,7 +1,7 @@
 ﻿using AdventOfCode2023.Days;
 
-Console.WriteLine(@"Day 2
+Console.WriteLine(@"Day 3
 ------");
-new Day02().Run();
+new Day03().Run();
 
 Console.ReadLine();
