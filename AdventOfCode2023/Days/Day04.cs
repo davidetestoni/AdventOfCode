@@ -41,8 +41,6 @@ internal class Day04 : IDay
             {
                 cards[j].Quantity += cards[i].Quantity;
             }
-
-            Console.WriteLine($"Index: {i} | Quantity: {cards[i].Quantity}");
         }
 
         var count = cards.Sum(c => c.Quantity);
