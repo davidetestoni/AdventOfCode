@@ -18,7 +18,7 @@ internal class Day03 : IDay
             // If symbol, check neighbors and reconstruct numbers
             if (IsSymbol(cell.Value))
             {
-                foreach (var neighbor in m.Neighbors(cell.Y, cell.X))
+                foreach (var neighbor in m.Neighbors(cell))
                 {
                     if (char.IsDigit(neighbor.Value))
                     {
@@ -38,7 +38,7 @@ internal class Day03 : IDay
         {
             numbers = new List<long>();
 
-            foreach (var neighbor in m.Neighbors(cell.Y, cell.X))
+            foreach (var neighbor in m.Neighbors(cell))
             {
                 if (char.IsDigit(neighbor.Value))
                 {
