@@ -55,7 +55,7 @@ public class Day5(ITestOutputHelper output)
 
         var correctUpdates = updates
             .Select(u => u
-                .Permutations(u.Length)
+                .Permutations()
                 .Select(p => p.ToArray())
                 .Single(p => IsCorrectlyOrdered(p, rules)));
         
