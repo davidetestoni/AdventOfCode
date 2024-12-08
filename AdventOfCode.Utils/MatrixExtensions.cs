@@ -15,6 +15,12 @@ public static class MatrixExtensions
             }
         }
     }
+    
+    /// <summary>
+    /// Checks if the given coordinates are within the bounds of the matrix.
+    /// </summary>
+    public static bool IsWithinBounds<T>(this T[][] m, int y, int x)
+        => y >= 0 && y < m.Length && x >= 0 && x < m[0].Length;
 
     /// <summary>
     /// Yields all cells above the given Y with the same X.
