@@ -10,7 +10,9 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <PackageReference Include="MathNet.Numerics" Version="5.0.0" />
         <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.6.0"/>
+        <PackageReference Include="SixLabors.ImageSharp" Version="3.1.6" />
         <PackageReference Include="xunit" Version="2.4.2"/>
         <PackageReference Include="xunit.runner.visualstudio" Version="2.4.5">
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -65,6 +67,18 @@
       </Content>
       <None Remove="Data\Day11.txt" />
       <Content Include="Data\Day11.txt">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <None Remove="Data\Day12.txt" />
+      <Content Include="Data\Day12.txt">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <None Remove="Data\Day13.txt" />
+      <Content Include="Data\Day13.txt">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <None Remove="Data\Day14.txt" />
+      <Content Include="Data\Day14.txt">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </Content>
     </ItemGroup>
