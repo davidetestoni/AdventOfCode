@@ -32,6 +32,15 @@ public static class MatrixExtensions
             yield return new Cell<T>(y, cell.X, m[y][cell.X]);
         }
     }
+    
+    /// <summary>
+    /// Returns the cell above the given cell, or null if it's out of bounds.
+    /// </summary>
+    public static Cell<T>? AboveCell<T>(this T[][] m, Cell<T> cell)
+    {
+        var y = cell.Y - 1;
+        return y >= 0 ? new Cell<T>(y, cell.X, m[y][cell.X]) : null;
+    }
 
     /// <summary>
     /// Yields all cells below the given Y with the same X.
@@ -42,6 +51,15 @@ public static class MatrixExtensions
         {
             yield return new Cell<T>(y, cell.X, m[y][cell.X]);
         }
+    }
+    
+    /// <summary>
+    /// Returns the cell below the given cell, or null if it's out of bounds.
+    /// </summary>
+    public static Cell<T>? BelowCell<T>(this T[][] m, Cell<T> cell)
+    {
+        var y = cell.Y + 1;
+        return y < m.Length ? new Cell<T>(y, cell.X, m[y][cell.X]) : null;
     }
 
     /// <summary>
@@ -54,6 +72,15 @@ public static class MatrixExtensions
             yield return new Cell<T>(cell.Y, x, m[cell.Y][x]);
         }
     }
+    
+    /// <summary>
+    /// Returns the cell left of the given cell, or null if it's out of bounds.
+    /// </summary>
+    public static Cell<T>? LeftCell<T>(this T[][] m, Cell<T> cell)
+    {
+        var x = cell.X - 1;
+        return x >= 0 ? new Cell<T>(cell.Y, x, m[cell.Y][x]) : null;
+    }
 
     /// <summary>
     /// Yields all cells right of the given X with the same Y.
@@ -64,6 +91,15 @@ public static class MatrixExtensions
         {
             yield return new Cell<T>(cell.Y, x, m[cell.Y][x]);
         }
+    }
+    
+    /// <summary>
+    /// Returns the cell right of the given cell, or null if it's out of bounds.
+    /// </summary>
+    public static Cell<T>? RightCell<T>(this T[][] m, Cell<T> cell)
+    {
+        var x = cell.X + 1;
+        return x < m[cell.Y].Length ? new Cell<T>(cell.Y, x, m[cell.Y][x]) : null;
     }
 
     /// <summary>
