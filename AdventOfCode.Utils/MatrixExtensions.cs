@@ -17,6 +17,12 @@ public static class MatrixExtensions
     }
     
     /// <summary>
+    /// Returns the value of the cell at the given coordinates.
+    /// </summary>
+    public static T At<T>(this T[][] m, Cell<T> cell)
+        => m[cell.Y][cell.X];
+    
+    /// <summary>
     /// Checks if the given coordinates are within the bounds of the matrix.
     /// </summary>
     public static bool IsWithinBounds<T>(this T[][] m, int y, int x)
