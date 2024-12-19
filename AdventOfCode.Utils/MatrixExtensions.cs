@@ -17,6 +17,11 @@ public static class MatrixExtensions
     }
     
     /// <summary>
+    /// Returns the cell at the given coordinates.
+    /// </summary>
+    public static Cell<T> At<T>(this T[][] m, int y, int x) => new(y, x, m[y][x]);
+    
+    /// <summary>
     /// Returns the value of the cell at the given coordinates.
     /// </summary>
     public static T At<T>(this T[][] m, Cell<T> cell)

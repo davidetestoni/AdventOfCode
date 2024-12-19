@@ -89,10 +89,28 @@
       <Content Include="Data\Day16.txt">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </Content>
+      <None Remove="Data\Day17.txt" />
+      <Content Include="Data\Day17.txt">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <None Remove="Data\Day18.txt" />
+      <Content Include="Data\Day18.txt">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <None Remove="Data\Day19.txt" />
+      <Content Include="Data\Day19.txt">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
     </ItemGroup>
 
     <ItemGroup>
       <ProjectReference Include="..\AdventOfCode.Utils\AdventOfCode.Utils.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Reference Include="Dijkstra.NET">
+        <HintPath>..\..\..\.nuget\packages\dijkstra.net\1.2.1\lib\netstandard1.3\Dijkstra.NET.dll</HintPath>
+      </Reference>
     </ItemGroup>
 
 </Project>

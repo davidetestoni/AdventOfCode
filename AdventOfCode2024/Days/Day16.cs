@@ -77,11 +77,6 @@ public class Day16(ITestOutputHelper output)
         var viableCells = neighbors
             .Where(n => matrix.At(n.Value) != '#' && visited.Add((n.Value.Y, n.Value.X)))
             .ToList();
-
-        if (viableCells.Count == 0)
-        {
-            return;
-        }
         
         foreach (var (dir, cell) in viableCells)
         {
