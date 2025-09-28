@@ -32,6 +32,12 @@ public static class MatrixExtensions
     /// </summary>
     public static bool IsWithinBounds<T>(this T[][] m, int y, int x)
         => y >= 0 && y < m.Length && x >= 0 && x < m[0].Length;
+    
+    /// <summary>
+    /// Checks if the given cell is a perimeter cell.
+    /// </summary>
+    public static bool IsPerimeter<T>(this T[][] m, Cell<T> cell)
+        => cell.Y == 0 || cell.X == 0 || cell.Y == m.Length - 1 || cell.X == m[cell.Y].Length - 1;
 
     /// <summary>
     /// Yields all cells above the given Y with the same X.
