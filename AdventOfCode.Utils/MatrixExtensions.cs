@@ -15,6 +15,23 @@ public static class MatrixExtensions
             }
         }
     }
+
+    /// <summary>
+    /// Yields all cells of a matrix row given its index.
+    /// </summary>
+    public static IEnumerable<Cell<T>> Row<T>(this T[][] m, int rowIndex)
+    {
+        for (var x = 0; x < m[rowIndex].Length; x++)
+        {
+            yield return new Cell<T>(rowIndex, x, m[rowIndex][x]);
+        }
+    }
+
+    /// <summary>
+    /// Yields all cells of a matrix column given its index.
+    /// </summary>
+    public static IEnumerable<Cell<T>> Column<T>(this T[][] m, int columnIndex)
+        => m.Select((row, y) => new Cell<T>(y, columnIndex, row[columnIndex]));
     
     /// <summary>
     /// Returns the cell at the given coordinates.
