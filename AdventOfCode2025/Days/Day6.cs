@@ -53,7 +53,7 @@ public class Day6(ITestOutputHelper output)
                         .Column(i)
                         .Take(matrix.Length - 1)
                         .Select(c => c.Value)
-                        .ToArray()).TrimStart());
+                        .ToArray()));
 
             operands.Add(number);
             
